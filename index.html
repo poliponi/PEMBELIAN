@@ -3,149 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHEILA ON7 POLIPONI.ID</title>
+<title>Form Pembelian Tiket</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-/* GRID BACKGROUND */
 body{
-  background-color:#eeeeee;
-  background-image:
-    linear-gradient(#d0d0d0 1px,transparent 1px),
-    linear-gradient(90deg,#d0d0d0 1px,transparent 1px);
-  background-size:30px 30px;
+background:black;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 }
 
-/* CONTAINER PUTIH */
 .container{
-  max-width:430px;
-  margin:auto;
-  min-height:100vh;
-  background:#fff;
-  box-shadow:0 0 0 2px #000;
+width:90%;
+max-width:420px;
+background:rgba(0,0,0,0.7);
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 40px rgba(255,60,0,0.5);
+backdrop-filter:blur(10px);
 }
 
-/* CONTENT */
-.content{padding:20px}
-
-/* TITLE */
 .title{
-  font-size:26px;
-  font-weight:bold;
-  text-align:center;
-  margin-bottom:15px;
-  color:#000;
+text-align:center;
+font-size:28px;
+color:#ff3c00;
+margin-bottom:20px;
 }
 
-/* BOX */
-.ticket-box{
-  background:#fff;
-  border:2px solid #000;
-  border-radius:16px;
-  padding:16px;
-  margin-bottom:20px;
+input, select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:10px;
+background:#111;
+color:white;
 }
 
-.ticket{
-  background:#f5f5f5;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  margin-bottom:10px;
+label{
+font-size:13px;
+opacity:0.8;
 }
 
-.ticket-name{font-weight:bold;color:#000}
-.price{color:#00994d;font-weight:bold}
-
-label{display:block;margin-top:14px;color:#000;font-weight:bold}
-input,select{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
+.total{
+margin-top:10px;
+font-weight:bold;
+color:#00ffcc;
 }
 
-/* TOTAL */
-.total-box{
-  margin-top:20px;
-  padding:14px;
-  border:2px dashed #000;
-  border-radius:12px;
-  text-align:center;
-}
-.total-box h2{color:#00994d}
-
-/* 🔥 QRIS FRAME UPGRADE */
 .qris{
-  margin-top:20px;
-  text-align:center;
-}
-
-.qris-frame{
-  display:inline-block;
-  padding:12px;
-  border:3px solid #000;
-  border-radius:16px;
-  background:#fff;
-  box-shadow:0 0 0 4px #ffd700; /* efek double frame */
+margin-top:15px;
+text-align:center;
 }
 
 .qris img{
-  width:220px;
-  display:block;
-  border-radius:10px;
+width:200px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,255,200,0.5);
 }
 
-.qris-label{
-  margin-top:8px;
-  font-size:14px;
-  font-weight:bold;
-  color:#000;
+.preview{
+margin-top:10px;
+text-align:center;
 }
 
-/* BUTTON */
-.btn{
-  width:100%;
-  padding:15px;
-  margin-top:20px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(90deg,#ffd700,#ffb700);
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
+.preview img{
+max-width:100%;
+border-radius:10px;
+margin-top:10px;
 }
 
-/* LOADING SCREEN */
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff3c00,#ff8800);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
 .loading{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  color:#fff;
-  z-index:9999;
-}
-
-.spinner{
-  width:60px;height:60px;
-  border:6px solid #444;
-  border-top:6px solid #ffd700;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  100%{transform:rotate(360deg)}
-}
-
-.loading p{
-  margin-top:15px;
-  font-size:16px;
+display:none;
+text-align:center;
+margin-top:10px;
+color:#00ffcc;
 }
 </style>
 </head>
@@ -153,59 +102,103 @@ input,select{
 <body>
 
 <div class="container">
-  <div class="content">
+<div class="title">FORM PEMBELIAN</div>
 
-    <div class="title">PEMBELIAN TIKET EVENT</div>
+<label>Nama Lengkap :</label>
+<input type="text" id="nama">
 
-    <div class="ticket-box">
-      <div class="ticket">
-        <div class="ticket-name">PREMIUM</div>
-        <div class="price">Rp. 400.000</div>
-      </div>
-      <div class="ticket">
-        <div class="ticket-name">FAST TRACK</div>
-        <div class="price">Rp. 600.000</div>
-      </div>
-    </div>
+<label>Nomor Identitas :</label>
+<input type="text" id="identitas" placeholder="NIK / SIM / PASPOR / KARTU PELAJAR">
 
-    <label>Nama</label>
-    <input type="text">
+<label>EMAIL :</label>
+<input type="email" id="email">
 
-    <label>Email</label>
-    <input type="email">
+<label>NO. Whatsapp :</label>
+<input type="text" id="wa">
 
-    <div class="total-box">
-      TOTAL
-      <h2>Rp. 400.000</h2>
-    </div>
+<label>Alamat :</label>
+<input type="text" id="alamat">
 
-    <!-- 🔥 QRIS FRAME -->
-    <div class="qris">
-      <div class="qris-frame">
-        <img src="GANTI-DENGAN-QRIS-ANDA.png">
-      </div>
-      <div class="qris-label">SCAN QRIS UNTUK PEMBAYARAN</div>
-    </div>
+<!-- KATEGORI TIKET -->
+<label>Category Tiket :</label>
+<select id="kategori" onchange="hitungTotal()">
+<option value="0">-- Pilih Tiket --</option>
+<option value="0" disabled>Reguler Festival (Soldout)</option>
+<option value="475000">Reguler Premium - Rp 475.000</option>
+<option value="675000">Reguler Fast Track - Rp 675.000</option>
+</select>
 
-    <button class="btn" onclick="proses()">BELI SEKARANG</button>
+<label>Jumlah Tiket :</label>
+<input type="number" id="jumlah" value="1" min="1" onchange="hitungTotal()">
 
-  </div>
+<label>Total Harga Otomatis :</label>
+<div class="total" id="total">Rp 0</div>
+
+<div class="qris">
+<p>Scan QRIS Pembayaran</p>
+<img src="qris.png">
 </div>
 
-<!-- LOADING -->
-<div class="loading" id="loading">
-  <div class="spinner"></div>
-  <p>Memverifikasi pembayaran...</p>
+<label>Upload File Bukti Pembayaran :</label>
+<input type="file" id="upload" accept="image/*" onchange="previewImage()">
+
+<div class="preview" id="preview"></div>
+
+<button onclick="kirim()">BELI SEKARANG</button>
+
+<div class="loading" id="loading">⏳ Memproses...</div>
+
 </div>
 
 <script>
-function proses(){
-  document.getElementById("loading").style.display="flex";
 
-  setTimeout(function(){
-    window.location.href="failed.html";
-  },30000); // 30 DETIK
+/* HITUNG TOTAL */
+function hitungTotal(){
+let harga = document.getElementById("kategori").value;
+let jumlah = document.getElementById("jumlah").value;
+
+if(harga == 0){
+document.getElementById("total").innerText = "Pilih kategori tiket";
+return;
 }
+
+let total = harga * jumlah;
+document.getElementById("total").innerText = "Rp " + total.toLocaleString("id-ID");
+}
+
+/* PREVIEW */
+function previewImage(){
+let file = document.getElementById("upload").files[0];
+let preview = document.getElementById("preview");
+
+if(file){
+let reader = new FileReader();
+reader.onload = function(e){
+preview.innerHTML = "<img src='"+e.target.result+"'>";
+}
+reader.readAsDataURL(file);
+}
+}
+
+/* VALIDASI + REDIRECT */
+function kirim(){
+let nama = document.getElementById("nama").value;
+let wa = document.getElementById("wa").value;
+let kategori = document.getElementById("kategori").value;
+let upload = document.getElementById("upload").files.length;
+
+if(nama=="" || wa=="" || kategori==0 || upload==0){
+alert("Lengkapi semua data terlebih dahulu!");
+return;
+}
+
+document.getElementById("loading").style.display="block";
+
+setTimeout(()=>{
+window.location.href="https://poliponi.github.io/Konfirmasi-selanjutnya/";
+},2000);
+}
+
 </script>
 
 </body>
